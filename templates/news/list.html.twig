@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <table class="table">
+
+                {% for item in news %}
+                    <tr><td>{{ item.title }}</td><td>{{ item.contents }}</td><td>{{ item.date|date("m/d/Y") }}</td><td><img src="/images/news/{{ item.image }}" alt="{{ item.image }}" width="200px"/></td><td><a href="/news/add/{{ item.id }}" class="btn btn-warning">Edytuj</a></td><td><a href="/news/delete/{{ item.id }}" class="btn btn-danger">Usuń</a></td></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
